@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+this_dir=$(dirname $0)
+this_dir=$(realpath $this_dir)
+
+src_dir="$this_dir/src"
+utils_dir="$this_dir/utils"
+
+minipuzzle=$1
+eclps -e "[\"$utils_dir/pprint\", \"$src_dir/$minipuzzle\"], solve(MySolution), printSolution(MySolution), halt." 2>&1

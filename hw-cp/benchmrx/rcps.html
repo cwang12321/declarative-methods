@@ -1,0 +1,278 @@
+<HTML>
+
+<HEAD>
+<TITLE>Planning & Scheduling Benchmarks</TITLE></HEAD>
+
+<BODY>
+
+<IMG SRC="rcpslogo.gif"> 
+
+<H1>Planning & Scheduling Benchmarks</H1> 
+
+<H1>Resource Constrained Project Scheduling</H1>
+
+<P> This data set, and its associated series of problems, is based
+upon large scale assembly but is applicable to a wide variety of
+problems in engineering, construction, and manufacturing that can
+generally be described as resource constrained project
+scheduling. This same data set and series of problems could have
+originated from a commercial construction project, a petro-chemical
+plant start-up, an automotive assembly line set-up, Space Shuttle
+reprocessing, or the assembly of heavy machine tools. I have prepared
+a first series of problems based upon this data set. Time permitting,
+I will prepare additional problems that are based upon this same data
+set or prepare additional data sets that can be the subject of this
+same series of problems.</P>
+
+<P> In brief summary, this series of problems is based upon the most
+common questions raised by production management. The capabilities
+demonstrated in the solution of these problems can be used to answer
+the following:</P>
+
+<UL>
+
+<LI>If there were no resource constraints, how long would this work
+take?  (Problem 1)</LI> 
+
+<LI>If we had unlimited labor resources, how long would this work take?
+ (Problem 2)</LI> 
+
+<LI>How much labor should we allocate in order to meet our delivery
+schedule? (Problem 12)</LI> 
+
+<LI>Given a fixed labor budget and a specific policy on how the work is
+to be managed, how long will this work take? (Problem 3 and 4)</LI>
+ 
+<LI>How can we accommodate new work without perturbing existing plans
+and schedules? What is the earliest that I can complete the new work? 
+(Problem 5) How long can I delay the new work? (Problem 6)</LI> 
+
+<LI>Things haven't gone exactly as planned. Is there any impact on our
+promised delivery? (Problem 7) Or do we need to call in some overtime
+(Problem 8)?</LI> 
+
+<LI>It looks like we need to support another project. Can we divert
+some labor without impact on our promised delivery (Problem 9) Or can we
+adjust our schedule and compensate with some overtime (Problem 10)?</LI>
+
+<LI>Can we use some of our excess labor to start the production of
+another assembly without impact on our promised delivery of the current
+assembly? (Problem 11)?</LI> 
+
+<LI>What delivery schedule can we promise our customers when we go
+into regular production (Problem 12)?</LI>
+
+</UL> 
+
+<br><HR><br>
+
+<H1>The Focus</H1>	
+
+<P> You will notice that every problem in the first series requires
+the construction of a schedule, and that the primary focus seems to be
+on producing "optimal" schedules, but taken as a whole the first
+series of problems represents an entirely different sort of
+challenge. My experience is that less than 1% of the code in a working
+scheduling application is devoted to schedule optimization. The
+remainder of the code is devoted to a diverse collection of functions
+required to make the application useful and user-friendly (graphical
+user interface, postscript reports, etc.) By similar measure, less
+than 5% of the time spent scheduling is making new schedules while 95%
+of the time is spent revising and maintaining schedules in the context
+of daily progress and changing assumptions.  Hence, the real emphasis
+in the first series of problems is upon having a complete collection
+of schedule construction and maintenance capabilities that can be used
+to directly support production management.  These problems exercise a
+scheduling engine with many of the very same challenges that it would
+encounter if deployed in a real production environment.</P>
+
+<P> Even though the emphasis is not upon optimization, it is still
+necessary to produce good solutions to these problems. When a customer
+has a choice of systems that provide equivalent functionality, they
+will always choose the one that produces better schedules. However
+each industry and application has a different measure of quality. In
+the following problems, the focus is on minimal cycle time but in the
+actual factory setting there are a large number of other, sometimes
+subjective, measures of quality that must be respected. These other
+factors are not part of this first series of problems only to keep its
+scope limited and focused.</P>
+
+<P> When measuring the quality of a schedule, it is important to agree
+not only upon the metric for comparison but also upon the standard for
+comparing two metric results. Traditional statistical measures can be
+used effectively to determine when two scheduling methods consistently
+produce different results but this should not be confused with what
+end users perceive to be a significant difference. In this, and other
+similar applications, a day is the smallest significant time quantum.
+This is because so many other aspects of production, like the start of
+a new assembly or the delivery of parts, are aligned on day
+boundaries.  Two schedules that differ by a few minutes or a few hours
+will not be significantly different. In such settings, a schedule must
+be at least 1 day better in order to be significantly better, but a 1
+day difference can be worth $100,000 or even $1,000,000.  It will be
+noticeable that this first series of problems is devoid of any
+"interesting" constraints or situations. In this data set there are
+only two kinds of constraints, resource and precedence. And we explore
+only one kind of resource usage.  At a later time I hope to publish
+additional data sets that explore other technical issues including
+interruption and preemption, placement preferences, resource modeling,
+and state constraints.  </P>
+
+<br><HR><br>
+
+<H1>The Challenge</H1>	
+
+<p> To some extent, the twelve problems given below are arranged
+according to progressive difficulty. Problem 1 is concerned only with
+precedence while Problem 2 is concerned with both precedence and
+resource constraints. But Problem 2 and Problem 3 are qualitatively
+quite different. Problem 2 can be solved with a scheduling engine that
+possesses no lookahead but Problem 3 requires sufficient lookahead to
+accurately schedule within shift boundaries. Problem 4 requires the
+ability to look past the shift boundaries so long as sufficient
+resources are available. Problem 5 requires the ability to look beyond
+shift boundaries and to perform scheduling within the context of some
+existing, but irregular pattern of resource availability. Problem 6
+requires essentially the same capability but may prove to be
+prohibitively difficult for scheduling engines that perform purely
+chronological schedule construction. Problem 7 exercises a scheduling
+engine's ability to perform incremental schedule modifications, while
+Problem 8 exercises a system's ability to constrain its operations to
+specific windows of time. Problems 9 and 10 are similar but might
+prove difficult for systems that rely upon hard coded models of
+resource availability rather than explicit data
+representations. Problem 11 again looks much like Problem 4 but tests
+whether the scheduling engine can be constrained in its effects while
+still pursuing an optimization goal. And finally Problem 12 exercises
+the scalability of a scheduling engine and at the same time tests
+whether a scheduling engine can simultaneously optimize multiple
+objectives.</P>
+
+<p> You will find that the problems in the first series require quite
+a variety of capabilities. It is not necessary that 100% of the work
+required to solve a problem be automated, but participants are
+expected to report on what parts of the solution process were
+accomplished through data manipulation and commands issued to their
+scheduling system. To be honest, the only thing that counts is the
+ability to produce good solutions to these problems in a
+cost-effective and timely fashion. Combinations of manual and
+automated methods will always be necessary to adapt to the
+continuously changing manufacturing environment.</P>
+
+<P> Some participants will find the complete series of problems to be
+prohibitively difficult. Others will find them to be within their
+capability. In the end, the number and kind of solutions submitted
+will substantially influence perceptions of what constitutes the
+state-of-the-practice and the state-of-the-art. At the same time, the
+number and kind of solutions submitted will influence the level of
+difficulty in subsequent benchmark problems.</P>
+
+<P>I recognize that most participants will be reluctant to publish
+their results without some knowledge of what others have
+accomplished. To reduce such anxiety, my partner in this endeavour,
+Mark Ringer, has agreed to work the first 4 problems with a simple
+first fit, interval based scheduling engine, with no optimization. His
+results are summarized in the section on results submitted by
+participants. I hope that all participants will report as many results
+as possible so that we can begin to determine what is a reasonable
+level of capability in addition to what is an achievable level of
+capability.</P>
+
+<BR><HR><BR>
+
+<H1>The Physical Problem</H1>
+
+<P> The physical problem, which this abstract data set represents, is
+the process of creating a large assembly consisting of a large number
+of discrete steps. Each step entails the performance of specific work
+documented in formal process plans. We can assume that the activity
+name, consisting of an assembly number followed by a step number,
+uniquely identifies each step and provides an unambiguous link to the
+formal process plans.  This data set contains only the information
+required to schedule the work and all other information necessary for
+the performance of the work is found elsewhere. The duration of each
+step is annotated in hours and minutes and the work has been divided
+so that no single step requires more than 1 shift (7.5 hours) for its
+performance. Each step requires zero or more individuals drawn from 4
+labor pools, Px, Py, Pz, and Pw, to be present for the full
+duration. While performing a step these individuals and their
+supporting equipment may occupy or exclusively reserve space within
+designated work-zones (Za, Zb, etc.) around the assembly.</P>
+
+<P>This data set was synthesized from actual assembly problems and,
+based upon my experience, is perfectly realistic. However the specific
+names, durations, labor, zone, and precedence constraints have all
+been created to make this problem entirely unique, and dissimilar from
+any real assembly. Hence, labor is named by anonymous pools Px, Py,
+Pz, and Pw, work zones around the assembly are named Za, Zb, etc., and
+the steps are designated by a two part name consisting of an anonymous
+assembly number and an anonymous step number. In addition, the step
+numbers have been randomized so that there is no correlation between
+step number and precedence.</P>
+
+<BR><HR><BR>
+
+<H1>The Data File</H1>
+
+<P>The data set, consisting of four parts, contains all of the data
+required in the graduated series of problems described below. The
+format for the data was chosen not for its generality or
+expressiveness, but rather for its simplicity so that minimal effort
+would be required in the creation of readers and writers. And in order
+to further minimize the effort required to get started, we have
+provided C++ source code for routines that will read and write this
+data. In brief summary, section 1 of the data set contains the
+activity specifications consisting of name, duration, and resource
+requirements; section 2 of the data set contains the precedence
+relations between the activities specified in section 1; section 3 of
+the data set contains a feasible schedule for the performance of the
+activities specified in sections 1 and 2; and finally section 4
+contains miscellaneous data found in the following problem
+descriptions. C++ source code that implements basic reading and
+writing routines for the data found in sections 1, 2, and 3 is
+provided in a separate file, courtesy of Mark Ringer.</P>
+
+<P>Any participants that received prior beta copies of this data
+should destroy those old data sets and use only the data acquired from
+this source. There have been some significant changes since it was
+first created. </P>
+
+<br><br>
+
+<P>The complete set of problems for the first series along with all of the
+necessary data can be retrieved below.</P>
+
+<br>
+
+
+<BR>
+<UL>
+<LI><A HREF="rcps.eps">   Resource Constrained Project Scheduling(postscript)</A></LI>
+<LI><A HREF="rcps.ascii"> Resource Constrained Project Scheduling(ascii)</A></LI>
+<LI><A HREF="rcps.doc">   Resource Constrained Project Scheduling(ms word)</A></LI>
+<LI><A HREF="rcps.data">  Data Set (ascii)</A></LI>  
+<LI><A HREF="prog.ascii"> Programs (C++)</A></LI>
+</UL>
+
+<br><HR><BR>
+
+<P> Return to <A HREF="default.html">
+Planning & Scheduling Benchmarks Home Page</A>.</P>
+
+<BR><HR><br>
+ 
+</BODY>
+
+<SCRIPT language="Javascript">
+<!--
+
+// FILE ARCHIVED ON 20041205113211 AND RETRIEVED FROM THE
+// INTERNET ARCHIVE ON 20100310210640.
+// JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+// ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+// SECTION 108(a)(3)).
+
+//-->
+</SCRIPT>
+
+</HTML>
