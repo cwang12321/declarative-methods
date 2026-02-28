@@ -23,7 +23,6 @@ for line in lines:
     args = line.split()
     if section == 1:
         name = args[0]
-        print(line)
         h, m = args[1].split(':')
         duration = int(h) * 60 + int(m)
         tasks[name] = duration
